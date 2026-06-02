@@ -1,0 +1,18 @@
+{
+    "viadinho": {
+        "senha": "123",
+        "nome": "gay da silva",
+        "email": "kid@gmail.com",
+        "tipo": "cliente",
+        "carrinho": []
+    },
+    "sdfb": {
+        "senha": "123",
+        "nome": "ardg",
+        "email": "hrj@gmail.com",
+        "tipo": "cliente",
+        "carrinho": [
+            2
+        ]
+    }
+}

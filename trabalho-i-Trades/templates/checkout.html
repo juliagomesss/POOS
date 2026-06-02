@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="perfil">
+
+<h2>Finalizar Compra</h2>
+
+<p>Subtotal: R$ {{ "%.2f"|format(subtotal) }}</p>
+<p>Taxa de serviço: R$ {{ "%.2f"|format(taxa) }}</p>
+<p>Frete: R$ {{ "%.2f"|format(frete) }}</p>
+
+<h2>Total: R$ {{ "%.2f"|format(total) }}</h2>
+
+<form method="POST">
+
+{% for id in ids %}
+<input type="hidden" name="selecionados" value="{{id}}">
+{% endfor %}
+
+<select name="pagamento">
+<option>Pix</option>
+<option>Cartão de Crédito</option>
+<option>Boleto</option>
+</select>
+
+<input
+name="endereco"
+placeholder="Endereço de entrega"
+required>
+
+<button>
+Confirmar Pagamento
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

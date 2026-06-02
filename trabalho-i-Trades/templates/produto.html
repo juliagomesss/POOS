@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="produto">
+
+{% if card.imagem %}
+<img class="produto-img"
+src="{{ url_for('static', filename='uploads/' + card.imagem) }}">
+{% else %}
+<div class="produto-img"></div>
+{% endif %}
+
+<div>
+
+<h2>{{card.nome}}</h2>
+
+<p>{{card.grupo}}</p>
+
+<p>{{card.descricao}}</p>
+
+<h3>{{card.preco}}</h3>
+
+{% if session.get("user") %}
+
+    {% if usuarios[session["user"]]["tipo"] != "vendedor" %}
+
+    <a href="/add_carrinho/{{card.id}}">
+        <button>Adicionar ao carrinho</button>
+    </a>
+
+    <a href="/comprar/{{card.id}}">
+        <button class="comprar-btn">
+            Comprar agora
+        </button>
+    </a>
+
+    {% endif %}
+
+{% else %}
+
+<a href="/login">
+    <button>Entrar para comprar</button>
+</a>
+
+{% endif %}
+
+</div>
+</div>
+
+<div class="avaliacoes">
+
+<h2>Avaliações</h2>
+
+{% if session.get("user") %}
+
+<form method="POST" action="/avaliar/{{card.id}}">
+
+<select name="nota">
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="2">⭐⭐</option>
+<option value="1">⭐</option>
+</select>
+
+<input
+name="comentario"
+placeholder="Escreva seu comentário"
+required>
+
+<button>Avaliar</button>
+
+</form>
+
+{% endif %}
+
+{% if card.avaliacoes %}
+
+{% for av in card.avaliacoes %}
+
+<div class="comentario">
+
+<strong>{{av.usuario}}</strong>
+
+<span>⭐ {{av.nota}}</span>
+
+<p>{{av.comentario}}</p>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<p>Nenhuma avaliação ainda.</p>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

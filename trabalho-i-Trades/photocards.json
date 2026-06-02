@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nome": "ardg",
+        "grupo": "reg",
+        "preco": "435",
+        "descricao": "ger",
+        "imagem": "Captura_de_tela_2026-05-12_102306.png",
+        "avaliacoes": [
+            {
+                "usuario": "sdfb",
+                "nota": "5",
+                "comentario": "\\srbs"
+            }
+        ]
+    }
+]

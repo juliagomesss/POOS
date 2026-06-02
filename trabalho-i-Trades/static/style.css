@@ -1,0 +1,373 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#fffafc;
+color:#5d4d57;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* NAVBAR */
+
+nav{
+height:100px;
+padding:0 60px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:white;
+box-shadow:0 4px 18px rgba(0,0,0,.04);
+}
+
+.logo-box img{
+height:78px;
+object-fit:contain;
+display:block;
+}
+
+.nav-links a{
+margin-left:22px;
+text-decoration:none;
+font-weight:700;
+color:#7b6672;
+transition:.25s;
+}
+
+.nav-links a:hover{
+color:#dbaebc;
+}
+
+/* HERO */
+
+.hero{
+padding:90px 20px;
+text-align:center;
+background:linear-gradient(135deg,#ffd6e4,#d6fff6);
+}
+
+.hero h2{
+font-size:52px;
+font-weight:900;
+}
+
+.hero p{
+margin-top:14px;
+font-size:18px;
+color:#666;
+}
+
+/* TITULOS */
+
+.titulo{
+text-align:center;
+font-size:48px;
+margin:55px 0;
+font-weight:900;
+color:#7b6672;
+}
+
+/* GRID */
+
+.cards{
+max-width:1400px;
+margin:auto;
+
+display:flex;
+justify-content:center;
+align-items:flex-start;
+gap:30px;
+flex-wrap:wrap;
+
+padding:20px 40px 70px;
+}
+
+/* CARD */
+
+.card-wrapper{
+position:relative;
+width:260px;
+}
+
+.card{
+display:block;
+width:260px;
+
+background:white;
+border-radius:24px;
+overflow:hidden;
+
+text-decoration:none;
+color:#333;
+
+box-shadow:0 8px 22px rgba(0,0,0,.05);
+
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.img{
+width:100%;
+height:360px;
+object-fit:cover;
+background:#eee;
+}
+
+.card h3{
+font-size:19px;
+margin:16px;
+font-weight:800;
+}
+
+.card p{
+margin:0 16px 10px;
+color:#777;
+}
+
+.card span{
+display:block;
+margin:0 16px 18px;
+font-size:22px;
+font-weight:900;
+color:#dbaebc;
+}
+
+/* CHECKBOX */
+
+.check-item{
+position:absolute;
+top:16px;
+right:16px;
+
+z-index:999;
+
+transform:scale(1.4);
+cursor:pointer;
+
+accent-color:#b3e0d2;
+}
+
+/* BOTÕES */
+
+button{
+border:none;
+border-radius:18px;
+
+padding:15px 24px;
+
+cursor:pointer;
+font-weight:800;
+
+background:#ffd6e4;
+color:#5d4d57;
+
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-3px);
+}
+
+.comprar-btn{
+background:#b3e0d2;
+}
+
+.logout-btn{
+background:#eabdcb;
+}
+
+/* CARRINHO */
+
+.acoes-carrinho{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+
+margin:40px auto 80px;
+}
+
+/* PRODUTO */
+
+.produto{
+max-width:1200px;
+margin:60px auto;
+
+display:flex;
+gap:60px;
+
+background:white;
+padding:45px;
+
+border-radius:26px;
+
+box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+
+.produto-img{
+width:360px;
+height:500px;
+
+object-fit:cover;
+border-radius:24px;
+}
+
+.produto h2{
+font-size:42px;
+margin-bottom:16px;
+}
+
+.produto p{
+color:#777;
+line-height:1.7;
+margin-bottom:14px;
+}
+
+.produto h3{
+font-size:34px;
+margin:24px 0;
+color:#dbaebc;
+}
+
+/* FORM */
+
+form{
+max-width:520px;
+margin:60px auto;
+
+background:white;
+padding:40px;
+
+border-radius:24px;
+
+box-shadow:0 8px 22px rgba(0,0,0,.05);
+
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+input,select{
+padding:16px;
+
+border:2px solid #eee;
+border-radius:16px;
+
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#dbaebc;
+}
+
+/* PERFIL */
+
+.perfil{
+max-width:900px;
+margin:60px auto;
+
+background:white;
+padding:45px;
+
+border-radius:24px;
+
+box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+
+/* AVALIAÇÕES */
+
+.avaliacoes{
+max-width:1200px;
+margin:50px auto;
+
+background:white;
+padding:40px;
+
+border-radius:24px;
+
+box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+
+.comentario{
+padding:18px 0;
+border-bottom:1px solid #eee;
+}
+
+.comentario strong{
+color:#dbaebc;
+}
+
+.comentario span{
+margin-left:10px;
+color:#888;
+}
+
+/* ERRO */
+
+.erro{
+text-align:center;
+font-weight:700;
+color:#ff7a92;
+}
+
+/* VAZIO */
+
+.vazio{
+text-align:center;
+padding:80px;
+color:#888;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:auto;
+padding:30px;
+text-align:center;
+
+background:white;
+
+color:#8d7480;
+font-weight:700;
+
+box-shadow:0 -4px 18px rgba(0,0,0,.03);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+.produto{
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.produto-img{
+width:290px;
+height:410px;
+}
+
+nav{
+padding:0 20px;
+}
+
+.hero h2{
+font-size:36px;
+}
+
+.titulo{
+font-size:34px;
+}
+}

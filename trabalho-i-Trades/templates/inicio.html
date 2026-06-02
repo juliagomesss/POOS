@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <h2>Troque e compre photocards exclusivos</h2>
+    <p>Seu marketplace de K-pop</p>
+</section>
+
+<div class="cards">
+{% for card in cards %}
+<a href="/produto/{{card.id}}" class="card">
+    {% if card.imagem %}
+    <img class="img" src="{{ url_for('static', filename='uploads/' + card.imagem) }}">
+    {% else %}
+        <div class="img"></div>
+    {% endif %}
+    <h3>{{card.nome}}</h3>
+    <p>{{card.grupo}}</p>
+    <span>{{card.preco}}</span>
+</a>
+{% endfor %}
+</div>
+{% endblock %}

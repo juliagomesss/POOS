@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="perfil">
+
+<h2>Perfil</h2>
+
+<p><strong>Usuário:</strong> {{usuario}}</p>
+<p><strong>Nome:</strong> {{info.nome}}</p>
+<p><strong>Email:</strong> {{info.email}}</p>
+<p><strong>Tipo:</strong> {{info.tipo}}</p>
+
+<form method="POST" action="/anunciar" enctype="multipart/form-data">
+
+    <input name="nome" placeholder="Nome">
+    <input name="grupo" placeholder="Grupo">
+    <input name="preco" placeholder="Preço">
+    <input name="descricao" placeholder="Descrição">
+
+    <input type="file" name="foto" accept="image/*">
+
+    <button>Anunciar</button>
+
+</form>
+
+{% if info.tipo == "vendedor" or info.tipo == "ambos" %}
+
+<h3>Anunciar photocard</h3>
+
+<form method="POST" action="/anunciar">
+<input name="nome" placeholder="Nome">
+<input name="grupo" placeholder="Grupo">
+<input name="preco" placeholder="Preço">
+<input name="descricao" placeholder="Descrição">
+
+<button>Anunciar</button>
+</form>
+
+{% endif %}
+
+<a href="/logout">
+    <button class="logout-btn">Sair da conta</button>
+</a>
+
+</div>
+{% endblock %}

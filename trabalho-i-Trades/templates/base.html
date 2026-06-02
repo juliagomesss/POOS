@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>i-Trades</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+
+<a href="/" class="logo-box">
+<img src="{{ url_for('static', filename='logo.png') }}" alt="i-Trades">
+</a>
+
+<div class="nav-links">
+<a href="/">Loja</a>
+<a href="/carrinho">Carrinho</a>
+
+{% if session.get("user") %}
+<a href="/perfil">{{session["user"]}}</a>
+{% else %}
+<a href="/login">Login</a>
+{% endif %}
+</div>
+
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+© 2026 i-Trades
+</footer>
+
+</body>
+</html>

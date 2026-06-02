@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+
+<h2>Login</h2>
+
+{% if erro %}
+<p class="erro">{{erro}}</p>
+{% endif %}
+
+<input type="text" name="user" placeholder="Usuário">
+<input type="password" name="senha" placeholder="Senha">
+
+<button>Entrar</button>
+
+<p>Não tem conta?
+<a href="/cadastro">Cadastre-se</a>
+</p>
+
+</form>
+{% endblock %}
