@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST">
+
+    <h2>Proposta de troca</h2>
+
+    <textarea
+        name="mensagem"
+        placeholder="O que você oferece na troca?"
+        required>
+    </textarea>
+
+    <button>
+        Enviar proposta
+    </button>
+
+</form>
+
+{% endblock %}

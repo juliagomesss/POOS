@@ -7,6 +7,7 @@
 </section>
 
 <div class="cards">
+{% if cards %}
 {% for card in cards %}
 <a href="/produto/{{card.id}}" class="card">
     {% if card.imagem %}
@@ -15,9 +16,27 @@
         <div class="img"></div>
     {% endif %}
     <h3>{{card.nome}}</h3>
-    <p>{{card.grupo}}</p>
-    <span>{{card.preco}}</span>
+    <p>
+    👤 {{card.get("vendedor", "Desconhecido")}}
+    </p>
+
+<p>{{card.grupo}}</p>
+
+<p>
+{% if card.tipo_anuncio == "venda" %}
+💸 Venda
+{% elif card.tipo_anuncio == "troca" %}
+🔄 Troca
+{% else %}
+💸🔄 Venda/Troca
+{% endif %}
+</p>
+
+<span>R$ {{card.preco}}</span>
 </a>
 {% endfor %}
+{% else %}
+    <p class="vazio" style="text-align:center; padding:40px;">Nenhum photocard encontrado.</p>
+{% endif %}
 </div>
 {% endblock %}

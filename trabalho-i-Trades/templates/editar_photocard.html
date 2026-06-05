@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST">
+
+    <h2>Editar photocard</h2>
+
+    <input
+        type="text"
+        name="nome"
+        value="{{card.nome}}"
+        placeholder="Nome"
+    >
+
+    <input
+        type="text"
+        name="grupo"
+        value="{{card.grupo}}"
+        placeholder="Grupo"
+    >
+
+    <input
+        type="text"
+        name="preco"
+        value="{{card.preco}}"
+        placeholder="Preço"
+    >
+
+    <input
+        type="text"
+        name="descricao"
+        value="{{card.descricao}}"
+        placeholder="Descrição"
+    >
+
+    <button type="submit">
+        Salvar alterações
+    </button>
+
+</form>
+
+{% endblock %}

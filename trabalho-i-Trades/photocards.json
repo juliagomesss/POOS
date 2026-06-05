@@ -1,16 +1,30 @@
 [
     {
         "id": 1,
-        "nome": "ardg",
-        "grupo": "reg",
-        "preco": "435",
-        "descricao": "ger",
-        "imagem": "Captura_de_tela_2026-05-12_102306.png",
-        "avaliacoes": [
+        "nome": "Renjun",
+        "grupo": "NCT Dream",
+        "preco": "55",
+        "descricao": "Renjun Glitch Mode",
+        "imagem": "renjun_glitch_mode.jpg",
+        "vendedor": "juliagomesss",
+        "tipo_anuncio": "venda",
+        "avaliacoes": [],
+        "trocas": []
+    },
+    {
+        "id": 2,
+        "nome": "Jennie",
+        "grupo": "BLACKPINK",
+        "preco": "110",
+        "descricao": "Jennie Ruby Solo",
+        "imagem": "Captura_de_tela_2026-06-05_183050.png",
+        "vendedor": "maria do jimin",
+        "tipo_anuncio": "ambos",
+        "avaliacoes": [],
+        "trocas": [
             {
-                "usuario": "sdfb",
-                "nota": "5",
-                "comentario": "\\srbs"
+                "usuario": "juliagomesss",
+                "mensagem": "olá, oq vc quer pela nini?"
             }
         ]
     }

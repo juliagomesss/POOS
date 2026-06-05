@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+
+    <h2>Configurações</h2>
+
+    <input
+        type="email"
+        name="email"
+        value="{{info.email}}"
+        placeholder="Novo email"
+    >
+
+    <label for="tipo">Tipo de usuário</label>
+    <select name="tipo" id="tipo">
+        <option value="cliente" {% if info.tipo == 'cliente' %}selected{% endif %}>Cliente</option>
+        <option value="vendedor" {% if info.tipo == 'vendedor' %}selected{% endif %}>Vendedor</option>
+    </select>
+
+    <label for="foto_perfil">Foto de perfil</label>
+    <input type="file" name="foto_perfil" accept="image/*">
+
+    <select name="tema">
+
+        <option value="claro" {% if info.tema != 'escuro' %}selected{% endif %}>
+            Tema claro
+        </option>
+
+        <option value="escuro" {% if info.tema == 'escuro' %}selected{% endif %}>
+            Tema escuro
+        </option>
+
+    </select>
+
+    <button type="submit">
+        Salvar configurações
+    </button>
+
+</form>
+
+<div class="acoes-carrinho">
+
+    {% if erro_excluir %}
+    <p style="color:crimson;">{{ erro_excluir }}</p>
+    {% endif %}
+
+    <form method="POST" action="/excluir_conta" style="margin-top:12px;">
+        <input type="password" name="senha_excluir" placeholder="Digite sua senha para confirmar" required>
+        <button type="submit" class="logout-btn">Excluir conta</button>
+    </form>
+
+</div>
+
+{% endblock %}

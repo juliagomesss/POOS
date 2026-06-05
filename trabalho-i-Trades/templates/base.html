@@ -5,24 +5,50 @@
 <title>i-Trades</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+
+<script>
+
+if(localStorage.getItem("tema") === "dark"){
+    document.body.classList.add("dark")
+}
+
+function trocarTema(){
+
+    if(document.body.classList.contains("dark")){
+
+        document.body.classList.remove("dark")
+        localStorage.setItem("tema", "light")
+
+    }else{
+
+        document.body.classList.add("dark")
+        localStorage.setItem("tema", "dark")
+
+    }
+
+}
+
+</script>
+
+<body class="{% if session.get('user') and usuarios.get(session.get('user'), {}).get('tema') == 'escuro' %}dark{% endif %}">
 
 <nav>
+  <a href="/" class="logo-box">
+    <span class="logo-text">i-Trades</span>
+  </a>
 
-<a href="/" class="logo-box">
-<img src="{{ url_for('static', filename='logo.png') }}" alt="i-Trades">
-</a>
-
-<div class="nav-links">
-<a href="/">Loja</a>
-<a href="/carrinho">Carrinho</a>
-
-{% if session.get("user") %}
-<a href="/perfil">{{session["user"]}}</a>
-{% else %}
-<a href="/login">Login</a>
-{% endif %}
-</div>
+  <div class="nav-links">
+    <a href="/">Loja</a>
+    <a href="/usuarios">Usuários</a>
+    <a href="/carrinho">Carrinho</a>
+    <a href="/configuracoes">Configurações</a>
+    <a href="/chat" class="chat-link">Chat{% if novas_mensagens > 0 %} <span class="badge">{{ novas_mensagens }}</span>{% endif %}</a>
+    {% if session.get("user") %}
+    <a href="/perfil">{{session["user"]}}</a>
+    {% else %}
+    <a href="/login">Login</a>
+    {% endif %}
+  </div>
 
 </nav>
 

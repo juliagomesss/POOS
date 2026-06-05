@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="text-align:center; margin-top:40px;">Conversas sobre {{ product.nome }}</h2>
+<div style="max-width:900px; margin:20px auto;">
+    {% if buyers %}
+        <ul>
+        {% for b in buyers %}
+            <li style="margin-bottom:10px;">
+                <a href="/chat/product/{{ product.id }}?user={{ b }}">{{ b }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="vazio">Ainda não há conversas para este produto.</p>
+    {% endif %}
+</div>
+{% endblock %}

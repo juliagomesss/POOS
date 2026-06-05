@@ -1,46 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="perfil">
 
 <h2>Perfil</h2>
 
+{% if info.foto_perfil %}
+<div class="perfil-foto">
+    <img src="{{ url_for('static', filename='uploads/' + info.foto_perfil) }}" alt="Foto de perfil de {{ usuario }}">
+</div>
+{% endif %}
+
 <p><strong>Usuário:</strong> {{usuario}}</p>
+
 <p><strong>Nome:</strong> {{info.nome}}</p>
+
 <p><strong>Email:</strong> {{info.email}}</p>
+
 <p><strong>Tipo:</strong> {{info.tipo}}</p>
 
-<form method="POST" action="/anunciar" enctype="multipart/form-data">
+<p><strong>Seguindo:</strong> {{ seguindo|length }}</p>
+<p><strong>Seguidores:</strong> {{ seguidores|length }}</p>
 
-    <input name="nome" placeholder="Nome">
-    <input name="grupo" placeholder="Grupo">
-    <input name="preco" placeholder="Preço">
-    <input name="descricao" placeholder="Descrição">
+{% if info.tipo == "vendedor" %}
 
-    <input type="file" name="foto" accept="image/*">
+<a href="/novo_photocard">
+    <button>Anunciar photocard</button>
+</a>
 
-    <button>Anunciar</button>
-
-</form>
-
-{% if info.tipo == "vendedor" or info.tipo == "ambos" %}
-
-<h3>Anunciar photocard</h3>
-
-<form method="POST" action="/anunciar">
-<input name="nome" placeholder="Nome">
-<input name="grupo" placeholder="Grupo">
-<input name="preco" placeholder="Preço">
-<input name="descricao" placeholder="Descrição">
-
-<button>Anunciar</button>
-</form>
+<a href="/meus_anuncios">
+    <button>Meus anúncios</button>
+</a>
 
 {% endif %}
 
-<a href="/logout">
-    <button class="logout-btn">Sair da conta</button>
-</a>
+<a href="/logout" class="logout-btn">Sair da conta</a>
+
+<!-- Configurações permanece apenas na barra de navegação -->
 
 </div>
+
 {% endblock %}

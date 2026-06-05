@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="perfil">
+
+    <h2>Escolha seu tipo de conta</h2>
+
+    <form method="POST">
+
+        <select name="tipo" required>
+
+            <option value="">Selecione</option>
+
+            <option value="cliente">Cliente</option>
+
+            <option value="vendedor">Vendedor</option>
+
+        </select>
+
+        <button type="submit">Continuar</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="titulo">Meus anúncios</h2>
+
+<div class="cards">
+
+{% for card in cards %}
+
+<div class="card-wrapper">
+
+    <a href="/produto/{{card.id}}" class="card">
+
+        {% if card.imagem %}
+
+        <img
+            src="{{ url_for('static',
+            filename='uploads/' + card.imagem) }}"
+            class="img"
+        >
+
+        {% endif %}
+
+        <h3>{{card.nome}}</h3>
+
+        <p>{{card.grupo}}</p>
+
+        <span>R$ {{card.preco}}</span>
+
+    </a>
+
+    <div class="acoes-card">
+
+        <a href="/editar_photocard/{{card.id}}">
+            <button>Editar</button>
+        </a>
+
+        <a href="/excluir_photocard/{{card.id}}">
+            <button class="logout-btn">
+                Excluir
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

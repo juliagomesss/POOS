@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="perfil">
+    <h2>Usuários cadastrados</h2>
+
+    {% if query %}
+    <p class="subtitulo">Resultados para "{{ query }}"</p>
+    {% endif %}
+
+    {% if resultados %}
+    <div class="usuarios-grid">
+        {% for u in resultados %}
+        <div class="usuario-card">
+            {% if u.foto_perfil %}
+            <img src="{{ url_for('static', filename='uploads/' + u.foto_perfil) }}" alt="Foto de {{ u.usuario }}">
+            {% else %}
+            <div class="usuario-avatar">{{ u.usuario[:1] | upper }}</div>
+            {% endif %}
+
+            <h3>{{ u.nome or u.usuario }}</h3>
+            <p class="subtexto">@{{ u.usuario }}</p>
+            <p>{{ u.email }}</p>
+            <p>Tipo: {{ u.tipo }}</p>
+
+            {% if session.get('user') and session['user'] != u.usuario %}
+                {% if u.usuario in usuarios[session['user']].get('seguindo', []) %}
+                <a href="/deixar_seguir/{{ u.usuario }}" class="botao-seguir">Deixar de seguir</a>
+                {% else %}
+                <a href="/seguir/{{ u.usuario }}" class="botao-seguir seguir">Seguir</a>
+                {% endif %}
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="vazio">Nenhum usuário encontrado.</p>
+    {% endif %}
+</div>
+{% endblock %}

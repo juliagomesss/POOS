@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="text-align:center; margin-top:40px;">Conversas</h2>
+<div style="max-width:900px; margin:20px auto;">
+    {% if threads %}
+        <ul>
+        {% for t in threads %}
+            <li style="margin-bottom:10px;">
+                <a href="/chat/product/{{ t.product.id }}{% if session.get('user') == t.product.vendedor %}?user={{ t.buyer }}{% endif %}">
+                    {{ t.product.nome }} — {{ t.buyer }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="vazio">Nenhuma conversa.</p>
+    {% endif %}
+</div>
+{% endblock %}

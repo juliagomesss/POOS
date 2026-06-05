@@ -1,18 +1,50 @@
 {
-    "viadinho": {
-        "senha": "123",
-        "nome": "gay da silva",
-        "email": "kid@gmail.com",
-        "tipo": "cliente",
-        "carrinho": []
-    },
-    "sdfb": {
-        "senha": "123",
-        "nome": "ardg",
-        "email": "hrj@gmail.com",
-        "tipo": "cliente",
+    "juliagomesss": {
+        "senha": "1234567",
+        "nome": "Júlia Gomes",
+        "email": "juliagomes@gmail.com",
+        "tipo": "vendedor",
         "carrinho": [
             2
-        ]
+        ],
+        "tema": "escuro",
+        "seguindo": [],
+        "foto_perfil": ""
+    },
+    "aldinha": {
+        "senha": "123456",
+        "nome": "Alda Santos",
+        "email": "aldasantos@gmail.com",
+        "tipo": "cliente",
+        "carrinho": [
+            1
+        ],
+        "seguindo": [],
+        "tema": "claro",
+        "foto_perfil": ""
+    },
+    "melissa kawaii": {
+        "senha": "1234567",
+        "nome": "Melissa Gomes",
+        "email": "melissakawaii@gmail.com",
+        "tipo": "cliente",
+        "carrinho": [],
+        "seguindo": [],
+        "tema": "claro",
+        "foto_perfil": ""
+    },
+    "maria do jimin": {
+        "senha": "1234567",
+        "nome": "Maria Eduarda Gomes",
+        "email": "mariadorama@gmail.com",
+        "tipo": "vendedor",
+        "carrinho": [],
+        "seguindo": [
+            "aldinha",
+            "juliagomesss",
+            "melissa kawaii"
+        ],
+        "tema": "claro",
+        "foto_perfil": ""
     }
 }

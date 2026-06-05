@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 
 <h2>Cadastro</h2>
 
-<input type="text" name="nome" placeholder="Nome completo">
-<input type="email" name="email" placeholder="Email">
-<input type="text" name="user" placeholder="Usuário">
-<input type="password" name="senha" placeholder="Senha">
+<input type="text" name="nome" placeholder="Nome completo" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="user" placeholder="Usuário" required>
+<input type="password" name="senha" placeholder="Senha" required>
+
+<label for="foto_perfil">Foto de perfil (opcional)</label>
+<input type="file" name="foto_perfil" accept="image/*">
 
 <button>Cadastrar</button>
 

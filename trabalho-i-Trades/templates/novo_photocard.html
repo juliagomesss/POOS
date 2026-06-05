@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST"
+      action="/anunciar"
+      enctype="multipart/form-data">
+
+    <h2>Anunciar photocard</h2>
+
+    <input name="nome" placeholder="Nome" required>
+
+    <input name="grupo" placeholder="Grupo" required>
+
+    <input name="preco" placeholder="Preço" required>
+
+    <input name="descricao" placeholder="Descrição" required>
+
+    <select name="tipo_anuncio">
+
+        <option value="venda">
+            Venda
+        </option>
+
+        <option value="troca">
+            Troca
+        </option>
+
+        <option value="ambos">
+            Venda/Troca
+        </option>
+
+    </select>
+
+    <input
+        type="file"
+        name="imagem"
+        accept="image/*"
+    >
+
+    <button>
+        Publicar
+    </button>
+
+</form>
+
+{% endblock %}

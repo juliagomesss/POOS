@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 style="text-align:center; margin-top:40px;">Chat</h2>
+
+<div style="max-width:900px; margin:20px auto;">
+
+    <div style="border:1px solid #eee; padding:12px; border-radius:8px; background:#fff; max-height:400px; overflow:auto;">
+        {% if chat %}
+            {% for m in chat %}
+            <div style="margin-bottom:8px;">
+                <strong>{{ m.usuario }}</strong>: <span>{{ m.mensagem }}</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="vazio">Ainda não há mensagens.</p>
+        {% endif %}
+    </div>
+
+    <form method="POST" style="display:flex; gap:8px; margin-top:12px;">
+        <input name="mensagem" placeholder="Digite sua mensagem" style="flex:1; padding:10px; border-radius:8px; border:1px solid #e6cfd8;" required>
+        <button type="submit" style="padding:10px 14px; border-radius:8px; background:#ffd6e4; border:none; font-weight:700;">Enviar</button>
+    </form>
+
+</div>
+
+{% endblock %}
