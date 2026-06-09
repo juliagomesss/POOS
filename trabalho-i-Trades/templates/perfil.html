@@ -4,40 +4,48 @@
 
 <div class="perfil">
 
-<h2>Perfil</h2>
+    <h2>Perfil</h2>
 
-{% if info.foto_perfil %}
-<div class="perfil-foto">
-    <img src="{{ url_for('static', filename='uploads/' + info.foto_perfil) }}" alt="Foto de perfil de {{ usuario }}">
-</div>
-{% endif %}
+    {% if info.foto_perfil %}
+    <div class="perfil-foto">
 
-<p><strong>Usuário:</strong> {{usuario}}</p>
+        <img
+            src="{{ url_for('static', filename='uploads/' + info.foto_perfil) }}"
+            alt="Foto de perfil de {{ usuario }}"
+        >
 
-<p><strong>Nome:</strong> {{info.nome}}</p>
+    </div>
+    {% endif %}
 
-<p><strong>Email:</strong> {{info.email}}</p>
+    <p><strong>Usuário:</strong> {{ usuario }}</p>
 
-<p><strong>Tipo:</strong> {{info.tipo}}</p>
+    <p><strong>Nome:</strong> {{ info.nome }}</p>
 
-<p><strong>Seguindo:</strong> {{ seguindo|length }}</p>
-<p><strong>Seguidores:</strong> {{ seguidores|length }}</p>
+    <p><strong>Email:</strong> {{ info.email }}</p>
 
-{% if info.tipo == "vendedor" %}
+    <p><strong>Tipo:</strong> {{ info.tipo }}</p>
 
-<a href="/novo_photocard">
-    <button>Anunciar photocard</button>
-</a>
+    <p><strong>Seguindo:</strong> {{ seguindo|length }}</p>
 
-<a href="/meus_anuncios">
-    <button>Meus anúncios</button>
-</a>
+    <p><strong>Seguidores:</strong> {{ seguidores|length }}</p>
 
-{% endif %}
+    {% if info.tipo == "vendedor" %}
 
-<a href="/logout" class="logout-btn">Sair da conta</a>
+    <a href="/novo_photocard">
+        <button>Anunciar photocard</button>
+    </a>
 
-<!-- Configurações permanece apenas na barra de navegação -->
+    <a href="/meus_anuncios">
+        <button>Meus anúncios</button>
+    </a>
+
+    {% endif %}
+
+    <a href="/logout">
+        <button class="logout-btn">
+            Sair da conta
+        </button>
+    </a>
 
 </div>
 

@@ -4,12 +4,10 @@
         "nome": "Júlia Gomes",
         "email": "juliagomes@gmail.com",
         "tipo": "vendedor",
-        "carrinho": [
-            2
-        ],
+        "carrinho": [],
         "tema": "escuro",
         "seguindo": [],
-        "foto_perfil": ""
+        "foto_perfil": "jpg"
     },
     "aldinha": {
         "senha": "123456",

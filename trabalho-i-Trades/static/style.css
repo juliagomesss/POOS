@@ -277,7 +277,7 @@ nav{
     z-index:99;
     transform:scale(1.25);
     cursor:pointer;
-    accent-color:#9fd7c8;
+    accent-color:#d6b398
 }
 
 /* BOTÕES */
@@ -290,8 +290,8 @@ a.logout-btn {
     cursor:pointer;
     font-weight:800;
     font-size:14px;
-    background: linear-gradient(180deg,#ffd6e4,#ffc6d8);
-    color:#583e47;
+    background: linear-gradient(180deg,#d6b398,#c7a184);
+    color:#ffffff;
     transition: transform .18s ease, box-shadow .18s ease;
     box-shadow: 0 6px 18px rgba(255,214,228,0.28);
     text-decoration:none;
@@ -516,7 +516,7 @@ border-bottom:1px solid #f1e4e8;
 }
 
 .comentario strong{
-    color:#dbaebc;
+    color:#927157;
 }
 
 .comentario span{
@@ -615,9 +615,9 @@ body.dark .hero{
 background:
 linear-gradient(
 135deg,
-#402b34,
+#40372b,
 #262626,
-#243a37
+#3a3024
 );
 }
 
@@ -757,7 +757,7 @@ a.btn-link {
     cursor: pointer;
     font-weight: 800;
     font-size: 15px;
-    background: #ffd6e4;
+    background: #d6b398;
     color: #5d4d57;
     transition: .25s;
     box-shadow: 0 6px 18px rgba(255,214,228,.4);
@@ -772,4 +772,57 @@ a.btn-link.comprar-btn {
     box-shadow: 0 6px 18px rgba(191,234,223,.5);
     width: 100%;
     margin-top: 10px;
+}
+/* === CHAT PRODUCT === */
+
+.chat-messages {
+    border: 1px solid #e6cfd8;
+    padding: 12px;
+    border-radius: 8px;
+    background: #fff;
+    max-height: 400px;
+    overflow: auto;
+    color: #3a2a2a;
+}
+
+.chat-msg {
+    margin-bottom: 8px;
+    color: #3a2a2a;
+}
+
+.chat-send-btn {
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #9c6a45;
+    border: none;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+
+.chat-send-btn:hover {
+    background: #9c6a45;
+}
+
+body.dark .chat-messages {
+    background: #242424;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+body.dark .chat-msg {
+    color: #f0f0f0;
+}
+
+body.dark .chat-msg strong {
+    color: #d6b398;
+}
+
+body.dark .chat-send-btn {
+    background: #9c6a45;
+    color: #fff;
+}
+
+body.dark .chat-send-btn:hover {
+    background: #9c6a45;
 }
