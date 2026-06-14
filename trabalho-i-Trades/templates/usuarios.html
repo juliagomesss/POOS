@@ -1,40 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="perfil">
-    <h2>Usuários cadastrados</h2>
 
-    {% if query %}
-    <p class="subtitulo">Resultados para "{{ query }}"</p>
-    {% endif %}
+{% if query %}
+<p class="text-center text-muted mb-3">
+    Resultados para "{{ query }}"
+</p>
+{% endif %}
 
-    {% if resultados %}
-    <div class="usuarios-grid">
-        {% for u in resultados %}
-        <div class="usuario-card">
+{% if resultados %}
+
+<div class="row g-4">
+
+    {% for u in resultados %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+        <div class="card h-100 shadow-sm text-center p-3">
+
             {% if u.foto_perfil %}
-            <img src="{{ url_for('static', filename='uploads/' + u.foto_perfil) }}" alt="Foto de {{ u.usuario }}">
+                <img src="{{ url_for('static', filename='uploads/' + u.foto_perfil) }}"
+                     class="rounded-circle mx-auto mb-3"
+                     style="width:90px; height:90px; object-fit:cover;">
             {% else %}
-            <div class="usuario-avatar">{{ u.usuario[:1] | upper }}</div>
+                <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                     style="width:90px; height:90px; font-size:28px;">
+                    {{ u.usuario[:1] | upper }}
+                </div>
             {% endif %}
 
-            <h3>{{ u.nome or u.usuario }}</h3>
-            <p class="subtexto">@{{ u.usuario }}</p>
-            <p>{{ u.email }}</p>
-            <p>Tipo: {{ u.tipo }}</p>
+            <h5 class="mb-1">{{ u.nome or u.usuario }}</h5>
+            <p class="text-muted mb-1">@{{ u.usuario }}</p>
+            <p class="mb-1">{{ u.email }}</p>
+            <p class="mb-3">Tipo: {{ u.tipo }}</p>
 
             {% if session.get('user') and session['user'] != u.usuario %}
+
                 {% if u.usuario in usuarios[session['user']].get('seguindo', []) %}
-                <a href="/deixar_seguir/{{ u.usuario }}" class="botao-seguir">Deixar de seguir</a>
+                    <a href="/deixar_seguir/{{ u.usuario }}"
+                       class="btn btn-outline-danger btn-sm w-100">
+                        Deixar de seguir
+                    </a>
                 {% else %}
-                <a href="/seguir/{{ u.usuario }}" class="botao-seguir seguir">Seguir</a>
+                    <a href="/seguir/{{ u.usuario }}"
+                       class="btn btn-primary btn-sm w-100">
+                        Seguir
+                    </a>
                 {% endif %}
+
             {% endif %}
+
         </div>
-        {% endfor %}
+
     </div>
-    {% else %}
-    <p class="vazio">Nenhum usuário encontrado.</p>
-    {% endif %}
+    {% endfor %}
+
 </div>
+
+{% else %}
+
+<p class="text-center text-muted">
+    Nenhum usuário encontrado.
+</p>
+
+{% endif %}
+
 {% endblock %}

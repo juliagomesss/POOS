@@ -2,23 +2,23 @@
 
 {% block content %}
 
-<div class="perfil">
+<div class="d-flex justify-content-center align-items-center" style="min-height:70vh;">
 
-    <h2>Escolha seu tipo de conta</h2>
+    <form method="POST" class="card p-4 shadow-sm" style="width:100%; max-width:420px;">
 
-    <form method="POST">
+        <h3 class="mb-3 text-center">Escolha seu tipo de conta</h3>
 
-        <select name="tipo" required>
+        <select name="tipo" class="form-select mb-3" required>
 
             <option value="">Selecione</option>
-
             <option value="cliente">Cliente</option>
-
             <option value="vendedor">Vendedor</option>
 
         </select>
 
-        <button type="submit">Continuar</button>
+        <button class="btn btn-primary w-100">
+            Continuar
+        </button>
 
     </form>
 

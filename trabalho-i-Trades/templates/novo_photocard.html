@@ -2,46 +2,97 @@
 
 {% block content %}
 
-<form method="POST"
-      action="/anunciar"
-      enctype="multipart/form-data">
+<div class="container py-5">
 
-    <h2>Anunciar photocard</h2>
+    <div class="row justify-content-center">
 
-    <input name="nome" placeholder="Nome" required>
+        <div class="col-12 col-md-8 col-lg-6">
 
-    <input name="grupo" placeholder="Grupo" required>
+            <div class="card shadow-sm border-0">
 
-    <input name="preco" placeholder="Preço" required>
+                <div class="card-body p-4">
 
-    <input name="descricao" placeholder="Descrição" required>
+                    <h3 class="text-center fw-bold mb-4">
+                        Anunciar Photocard
+                    </h3>
 
-    <select name="tipo_anuncio">
+                    <form method="POST" enctype="multipart/form-data">
 
-        <option value="venda">
-            Venda
-        </option>
+                        <!-- NOME -->
+                        <div class="mb-3">
+                            <input
+                                name="nome"
+                                class="form-control"
+                                placeholder="Nome do photocard"
+                                required>
+                        </div>
 
-        <option value="troca">
-            Troca
-        </option>
+                        <!-- GRUPO -->
+                        <div class="mb-3">
+                            <input
+                                name="grupo"
+                                class="form-control"
+                                placeholder="Grupo"
+                                required>
+                        </div>
 
-        <option value="ambos">
-            Venda/Troca
-        </option>
+                        <!-- PREÇO -->
+                        <div class="mb-3">
+                            <input
+                                name="preco"
+                                class="form-control"
+                                placeholder="Preço"
+                                required>
+                        </div>
 
-    </select>
+                        <!-- DESCRIÇÃO -->
+                        <div class="mb-3">
+                            <input
+                                name="descricao"
+                                class="form-control"
+                                placeholder="Descrição"
+                                required>
+                        </div>
 
-    <input
-        type="file"
-        name="imagem"
-        accept="image/*"
-    >
+                        <!-- TIPO -->
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de anúncio</label>
 
-    <button>
-        Publicar
-    </button>
+                            <select name="tipo_anuncio" class="form-select">
 
-</form>
+                                <option value="venda">Venda</option>
+                                <option value="troca">Troca</option>
+                                <option value="ambos">Venda / Troca</option>
+
+                            </select>
+                        </div>
+
+                        <!-- IMAGEM -->
+                        <div class="mb-3">
+                            <label class="form-label">Imagem</label>
+
+                            <input
+                                type="file"
+                                name="imagem"
+                                class="form-control"
+                                accept="image/*">
+                        </div>
+
+                        <!-- BOTÃO -->
+                        <button type="submit" class="btn btn-success w-100">
+                            Publicar
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

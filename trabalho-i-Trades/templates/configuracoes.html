@@ -2,105 +2,127 @@
 
 {% block content %}
 
-<form method="POST" enctype="multipart/form-data">
+<div class="container py-5">
 
-    <h2>Configurações</h2>
+    <div class="row justify-content-center">
 
-    <input
-        type="email"
-        name="email"
-        value="{{ info.email }}"
-        placeholder="Novo email"
-    >
+        <div class="col-12 col-md-8 col-lg-6">
 
-    <label for="tipo">Tipo de usuário</label>
+            <div class="card shadow-sm border-0">
 
-    <select name="tipo" id="tipo">
+                <div class="card-body p-4">
 
-        <option value="cliente"
-            {% if info.tipo == 'cliente' %}
-                selected
-            {% endif %}
-        >
-            Cliente
-        </option>
+                    <h3 class="text-center fw-bold mb-4">
+                        Configurações
+                    </h3>
 
-        <option value="vendedor"
-            {% if info.tipo == 'vendedor' %}
-                selected
-            {% endif %}
-        >
-            Vendedor
-        </option>
+                    <form method="POST" enctype="multipart/form-data">
 
-    </select>
+                        <!-- EMAIL -->
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value="{{ info.email }}"
+                                class="form-control"
+                                placeholder="Novo email">
+                        </div>
 
-    <label for="foto_perfil">
-        Foto de perfil
-    </label>
+                        <!-- TIPO -->
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de usuário</label>
 
-    <input
-        type="file"
-        name="foto_perfil"
-        accept="image/*"
-    >
+                            <select name="tipo" class="form-select">
 
-    <select name="tema">
+                                <option value="cliente"
+                                    {% if info.tipo == 'cliente' %}selected{% endif %}>
+                                    Cliente
+                                </option>
 
-        <option
-            value="claro"
-            {% if info.tema != 'escuro' %}
-                selected
-            {% endif %}
-        >
-            Tema claro
-        </option>
+                                <option value="vendedor"
+                                    {% if info.tipo == 'vendedor' %}selected{% endif %}>
+                                    Vendedor
+                                </option>
 
-        <option
-            value="escuro"
-            {% if info.tema == 'escuro' %}
-                selected
-            {% endif %}
-        >
-            Tema escuro
-        </option>
+                            </select>
+                        </div>
 
-    </select>
+                        <!-- FOTO -->
+                        <div class="mb-3">
+                            <label class="form-label">Foto de perfil</label>
 
-    <button type="submit">
-        Salvar configurações
-    </button>
+                            <input
+                                type="file"
+                                name="foto_perfil"
+                                class="form-control"
+                                accept="image/*">
+                        </div>
 
-</form>
+                        <!-- TEMA -->
+                        <div class="mb-3">
+                            <label class="form-label">Tema</label>
 
-{% if erro_excluir %}
+                            <select name="tema" class="form-select">
 
-<p style="color: crimson;">
-    {{ erro_excluir }}
-</p>
+                                <option value="claro"
+                                    {% if info.tema != 'escuro' %}selected{% endif %}>
+                                    Tema claro
+                                </option>
 
-{% endif %}
+                                <option value="escuro"
+                                    {% if info.tema == 'escuro' %}selected{% endif %}>
+                                    Tema escuro
+                                </option>
 
-<form
-    method="POST"
-    action="/excluir_conta"
-    style="margin-top: 12px;"
->
+                            </select>
+                        </div>
 
-    <input
-        type="password"
-        name="senha_excluir"
-        placeholder="Digite sua senha para confirmar"
-        required
-    >
+                        <!-- BOTÃO SALVAR -->
+                        <button type="submit" class="btn btn-primary w-100">
+                            Salvar configurações
+                        </button>
 
-    <button
-        type="submit"
-        class="logout-btn"
-    >
-        Excluir conta
-    </button>
+                    </form>
 
-</form>
+                    <hr class="my-4">
+
+                    <!-- EXCLUIR CONTA -->
+                    <h5 class="text-danger text-center mb-3">
+                        Zona de perigo
+                    </h5>
+
+                    <form method="POST" action="/excluir_conta">
+
+                        {% if erro_excluir %}
+                        <div class="alert alert-danger">
+                            {{ erro_excluir }}
+                        </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <input
+                                type="password"
+                                name="senha_excluir"
+                                class="form-control"
+                                placeholder="Digite sua senha para confirmar"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100">
+                            Excluir conta
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

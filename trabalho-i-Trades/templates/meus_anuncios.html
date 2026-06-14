@@ -2,51 +2,67 @@
 
 {% block content %}
 
-<h2 class="titulo">Meus anúncios</h2>
+<div class="container py-5">
 
-<div class="cards">
+    <h2 class="text-center fw-bold mb-4">
+        Meus Anúncios
+    </h2>
 
-{% for card in cards %}
+    <div class="row g-4 justify-content-center">
 
-<div class="card-wrapper">
+        {% for card in cards %}
 
-    <a href="/produto/{{card.id}}" class="card">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
 
-        {% if card.imagem %}
+            <div class="card shadow-sm h-100">
 
-        <img
-            src="{{ url_for('static',
-            filename='uploads/' + card.imagem) }}"
-            class="img"
-        >
+                <!-- LINK PRODUTO -->
+                <a href="/produto/{{ card.id }}" class="text-decoration-none text-dark">
 
-        {% endif %}
+                    {% if card.imagem %}
+                    <img src="{{ url_for('static', filename='uploads/' + card.imagem) }}"
+                         class="card-img-top"
+                         style="height: 220px; object-fit: cover;">
+                    {% else %}
+                    <div class="bg-secondary" style="height: 220px;"></div>
+                    {% endif %}
 
-        <h3>{{card.nome}}</h3>
+                    <div class="card-body">
 
-        <p>{{card.grupo}}</p>
+                        <h5 class="card-title">{{ card.nome }}</h5>
 
-        <span>R$ {{card.preco}}</span>
+                        <p class="text-muted mb-1">{{ card.grupo }}</p>
 
-    </a>
+                        <span class="fw-bold text-success">
+                            R$ {{ card.preco }}
+                        </span>
 
-    <div class="acoes-card">
+                    </div>
 
-        <a href="/editar_photocard/{{card.id}}">
-            <button>Editar</button>
-        </a>
+                </a>
 
-        <a href="/excluir_photocard/{{card.id}}">
-            <button class="logout-btn">
-                Excluir
-            </button>
-        </a>
+                <!-- AÇÕES -->
+                <div class="card-footer bg-white border-0 d-flex gap-2">
+
+                    <a href="/editar_photocard/{{ card.id }}"
+                       class="btn btn-sm btn-outline-primary w-50">
+                        Editar
+                    </a>
+
+                    <a href="/excluir_photocard/{{ card.id }}"
+                       class="btn btn-sm btn-outline-danger w-50">
+                        Excluir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
 
     </div>
-
-</div>
-
-{% endfor %}
 
 </div>
 

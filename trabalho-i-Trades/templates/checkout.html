@@ -2,38 +2,86 @@
 
 {% block content %}
 
-<div class="perfil">
+<div class="container py-5">
 
-<h2>Finalizar Compra</h2>
+    <div class="row justify-content-center">
 
-<p>Subtotal: R$ {{ "%.2f"|format(subtotal) }}</p>
-<p>Taxa de serviço: R$ {{ "%.2f"|format(taxa) }}</p>
-<p>Frete: R$ {{ "%.2f"|format(frete) }}</p>
+        <div class="col-12 col-md-7 col-lg-6">
 
-<h2>Total: R$ {{ "%.2f"|format(total) }}</h2>
+            <div class="card shadow-sm border-0">
 
-<form method="POST">
+                <div class="card-body p-4">
 
-{% for id in ids %}
-<input type="hidden" name="selecionados" value="{{id}}">
-{% endfor %}
+                    <h3 class="text-center fw-bold mb-4">
+                        Finalizar Compra
+                    </h3>
 
-<select name="pagamento">
-<option>Pix</option>
-<option>Cartão de Crédito</option>
-<option>Boleto</option>
-</select>
+                    <!-- RESUMO -->
+                    <div class="mb-3">
 
-<input
-name="endereco"
-placeholder="Endereço de entrega"
-required>
+                        <p class="mb-1">
+                            Subtotal: <strong>R$ {{ "%.2f"|format(subtotal) }}</strong>
+                        </p>
 
-<button>
-Confirmar Pagamento
-</button>
+                        <p class="mb-1">
+                            Taxa de serviço: <strong>R$ {{ "%.2f"|format(taxa) }}</strong>
+                        </p>
 
-</form>
+                        <p class="mb-1">
+                            Frete: <strong>R$ {{ "%.2f"|format(frete) }}</strong>
+                        </p>
+
+                        <hr>
+
+                        <h4 class="text-success fw-bold">
+                            Total: R$ {{ "%.2f"|format(total) }}
+                        </h4>
+
+                    </div>
+
+                    <!-- FORM -->
+                    <form method="POST">
+
+                        {% for id in ids %}
+                        <input type="hidden" name="selecionados" value="{{ id }}">
+                        {% endfor %}
+
+                        <!-- PAGAMENTO -->
+                        <div class="mb-3">
+                            <label class="form-label">Forma de pagamento</label>
+
+                            <select name="pagamento" class="form-select">
+                                <option>Pix</option>
+                                <option>Cartão de Crédito</option>
+                                <option>Boleto</option>
+                            </select>
+                        </div>
+
+                        <!-- ENDEREÇO -->
+                        <div class="mb-3">
+                            <label class="form-label">Endereço de entrega</label>
+
+                            <input
+                                name="endereco"
+                                class="form-control"
+                                placeholder="Digite seu endereço"
+                                required>
+                        </div>
+
+                        <!-- BOTÃO -->
+                        <button type="submit" class="btn btn-success w-100">
+                            Confirmar Pagamento
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 

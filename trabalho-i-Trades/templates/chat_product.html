@@ -1,26 +1,72 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2 style="text-align:center; margin-top:40px;">Chat — {{ product.nome }} {% if buyer %} (com {{ buyer }}){% endif %}</h2>
 
-<div style="max-width:900px; margin:20px auto;">
+<div class="container mt-4">
 
-    <div class="chat-messages">
-        {% if mensagens %}
-            {% for m in mensagens %}
-            <div class="chat-msg">
-                <strong>{{ m.usuario }}</strong>: <span>{{ m.mensagem }}</span>
+    <!-- TÍTULO -->
+    <h3 class="text-center fw-bold mb-4" style="color:#6b3f2a;">
+        Chat do produto
+    </h3>
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-8 col-lg-7">
+
+            <!-- CAIXA DE MENSAGENS -->
+            <div class="chat-box p-3 mb-3">
+
+                {% if mensagens %}
+
+                    {% for m in mensagens %}
+
+                        <div class="chat-msg-box mb-2">
+
+                            <div class="chat-bubble">
+
+                                <strong class="chat-user">
+                                    {{ m.usuario }}
+                                </strong>
+
+                                <div class="chat-text">
+                                    {{ m.mensagem }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="text-center text-muted mt-5">
+                        Nenhuma mensagem ainda.
+                    </p>
+
+                {% endif %}
+
             </div>
-            {% endfor %}
-        {% else %}
-            <p class="vazio">Nenhuma mensagem ainda.</p>
-        {% endif %}
-    </div>
 
-    <form method="POST" style="display:flex; gap:8px; margin-top:12px;">
-        <input name="mensagem" placeholder="Digite sua mensagem" style="flex:1; padding:10px; border-radius:8px; border:1px solid #e6cfd8;" required>
-        <button type="submit" class="chat-send-btn">Enviar</button>
-    </form>
+            <!-- FORM -->
+            <form method="POST" class="d-flex gap-2">
+
+                <input
+                    name="mensagem"
+                    class="form-control chat-input"
+                    placeholder="Digite sua mensagem..."
+                    required
+                >
+
+                <button type="submit" class="btn chat-btn">
+                    Enviar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </div>
 

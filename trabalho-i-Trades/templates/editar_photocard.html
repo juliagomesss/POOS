@@ -2,42 +2,81 @@
 
 {% block content %}
 
-<form method="POST">
+<div class="container py-5">
 
-    <h2>Editar photocard</h2>
+    <div class="row justify-content-center">
 
-    <input
-        type="text"
-        name="nome"
-        value="{{card.nome}}"
-        placeholder="Nome"
-    >
+        <div class="col-12 col-md-8 col-lg-6">
 
-    <input
-        type="text"
-        name="grupo"
-        value="{{card.grupo}}"
-        placeholder="Grupo"
-    >
+            <div class="card shadow-sm border-0">
 
-    <input
-        type="text"
-        name="preco"
-        value="{{card.preco}}"
-        placeholder="Preço"
-    >
+                <div class="card-body p-4">
 
-    <input
-        type="text"
-        name="descricao"
-        value="{{card.descricao}}"
-        placeholder="Descrição"
-    >
+                    <h3 class="text-center fw-bold mb-4">
+                        Editar Photocard
+                    </h3>
 
-    <button type="submit">
-        Salvar alterações
-    </button>
+                    <form method="POST">
 
-</form>
+                        <!-- NOME -->
+                        <div class="mb-3">
+                            <label class="form-label">Nome</label>
+                            <input
+                                type="text"
+                                name="nome"
+                                value="{{ card.nome }}"
+                                class="form-control"
+                                placeholder="Nome">
+                        </div>
+
+                        <!-- GRUPO -->
+                        <div class="mb-3">
+                            <label class="form-label">Grupo</label>
+                            <input
+                                type="text"
+                                name="grupo"
+                                value="{{ card.grupo }}"
+                                class="form-control"
+                                placeholder="Grupo">
+                        </div>
+
+                        <!-- PREÇO -->
+                        <div class="mb-3">
+                            <label class="form-label">Preço</label>
+                            <input
+                                type="text"
+                                name="preco"
+                                value="{{ card.preco }}"
+                                class="form-control"
+                                placeholder="Preço">
+                        </div>
+
+                        <!-- DESCRIÇÃO -->
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <input
+                                type="text"
+                                name="descricao"
+                                value="{{ card.descricao }}"
+                                class="form-control"
+                                placeholder="Descrição">
+                        </div>
+
+                        <!-- BOTÃO -->
+                        <button type="submit" class="btn btn-primary w-100">
+                            Salvar alterações
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

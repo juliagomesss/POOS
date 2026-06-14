@@ -1,20 +1,60 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2 style="text-align:center; margin-top:40px;">Conversas</h2>
-<div style="max-width:900px; margin:20px auto;">
-    {% if threads %}
-        <ul>
-        {% for t in threads %}
-            <li style="margin-bottom:10px;">
-                <a href="/chat/product/{{ t.product.id }}{% if session.get('user') == t.product.vendedor %}?user={{ t.buyer }}{% endif %}">
-                    {{ t.product.nome }} — {{ t.buyer }}
+
+<div class="container py-5">
+
+    <h2 class="text-center fw-bold mb-4">
+        Conversas
+    </h2>
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-9 col-lg-7">
+
+            {% if threads %}
+
+            <div class="list-group shadow-sm">
+
+                {% for t in threads %}
+
+                <a href="/chat/product/{{ t.product.id }}{% if session.get('user') == t.product.vendedor %}?user={{ t.buyer }}{% endif %}"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="fw-bold">
+                            {{ t.product.nome }}
+                        </div>
+
+                        <small class="text-muted">
+                            👤 {{ t.buyer }}
+                        </small>
+
+                    </div>
+
+                    <span class="badge bg-primary rounded-pill">
+                        abrir
+                    </span>
+
                 </a>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p class="vazio">Nenhuma conversa.</p>
-    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <p class="text-center text-muted py-5">
+                Nenhuma conversa.
+            </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
 </div>
+
 {% endblock %}
